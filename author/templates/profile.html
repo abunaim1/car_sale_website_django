@@ -1,0 +1,24 @@
+{% extends 'base.html' %} 
+{% load crispy_forms_tags %}
+{% block content %}
+{% for msg in messages %}
+{{msg}}
+{% endfor %}
+<div style="width: 11%; margin: auto;  margin-top: 40px; margin-bottom: 40px;">
+    <button class="btn btn-warning"><a class="text-dark text-decoration-none" href="{% url 'edit' %}">Edit Your Profile</a></button>
+</div>
+<div class="card-container d-flex flex-wrap gap-2" style="width: 67%; margin: auto;">
+    {% for car in cars %}
+    <div class="card" style="width: 18rem;">
+        <img src="{{car.car.image.url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{car.car.name}}</h5>
+            <h5 class="card-title">{{car.car.price}}</h5>
+            <h5 class="card-title">{{car.car.brand}}</h5>
+            <a href="{% url 'detail' car.car.id %}" class="btn btn-success">View Details</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
