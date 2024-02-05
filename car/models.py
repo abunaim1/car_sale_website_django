@@ -1,6 +1,5 @@
 from django.db import models
 from brand.models import BrandModel
-from django.contrib.auth.models import User
 # Create your models here.
 
 class CarModel(models.Model):
